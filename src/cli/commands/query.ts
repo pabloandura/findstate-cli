@@ -1,25 +1,39 @@
-import { queryData } from "../../core/query-engine";
 import { loadData } from "../../core/data-loader";
-import { formatAsTable, formatAsJSON } from "../../core/formatter";
+import { formatAsJSON, formatAsTable } from "../../core/formatter";
+import { queryData } from "../../core/query-engine";
 import { validateQuery } from "../../core/validators";
 
 export function queryCommand(queries: string[], source: string = "mock", output: string = "table"): void {
-  const data = loadData(source);
-
-  const parsedQueries = queries.map((query) => {
-    const [field, operation, value] = query.split(":");
-    const parsedValue = isNaN(Number(value)) ? value : Number(value);
-    const queryObject = { field, operation, value: parsedValue };
-
-    validateQuery(queryObject);
-    return queryObject;
-  });
-
-  const results = queryData(data, parsedQueries);
-
-  if (output === "json") {
-    console.log(formatAsJSON(results));
-  } else {
-    console.log(formatAsTable(results));
+    const data = loadData(source);
+  
+    if (!queries || queries.length === 0) {
+      console.error("Error: No queries provided. Use the format field:operation:value.");
+      console.log("Example: price:greaterThan:300000 or rooms:lessThan:5");
+      process.exit(1);
+    }
+  
+    const parsedQueries = queries.map((query) => {
+      const parts = query.split(":");
+      if (parts.length !== 3) {
+        console.error(`Error: Invalid query format '${query}'. Expected format is field:operation:value.`);
+        console.log("Example: price:greaterThan:300000 or rooms:lessThan:5");
+        process.exit(1);
+      }
+  
+      const [field, operation, value] = parts;
+      const parsedValue = isNaN(Number(value)) ? value : Number(value);
+      const queryObject = { field, operation, value: parsedValue };
+  
+      validateQuery(queryObject);
+      return queryObject;
+    });
+  
+    const results = queryData(data, parsedQueries);
+  
+    if (output === "json") {
+      console.log(formatAsJSON(results));
+    } else {
+      console.log(formatAsTable(results));
+    }
   }
-}
+  
