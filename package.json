@@ -4,13 +4,14 @@
   "description": "A CLI for querying data optimized for Real Estate",
   "main": "index.js",
   "bin": {
-  "findstate-cli": "./dist/cli/index.js"
+    "findstate-cli": "./dist/cli/index.js"
   },
   "scripts": {
     "start": "node dist/cli/index.js",
     "build": "tsc",
     "dev": "nodemon src/cli/index.ts",
-    "test": "mocha -r ts-node/register 'src/tests/**/*.test.ts'"
+  "test": "mocha -r ts-node/register tests/**/*.test.ts"
+
   },
   "keywords": [
     "query",
@@ -36,6 +37,7 @@
     "chai": "^5.1.2",
     "mocha": "^10.8.2",
     "nodemon": "^3.1.7",
+    "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
