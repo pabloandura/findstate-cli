@@ -27,7 +27,7 @@
     "typescript",
     "node"
   ],
-  "author": "Pablo Andura, SilverDevs",
+  "author": "Pablo Andura",
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^5.0.1",
