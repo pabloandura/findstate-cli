@@ -1,0 +1,47 @@
+{
+  "name": "findstate-cli",
+  "version": "1.0.0",
+  "description": "A CLI for querying data optimized for Real Estate",
+  "main": "index.js",
+  "bin": {
+  "findstate-cli": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "start": "node dist/cli/index.js",
+    "build": "tsc",
+    "dev": "nodemon src/cli/index.ts",
+    "test": "mocha -r ts-node/register 'src/tests/**/*.test.ts'"
+  },
+  "keywords": [
+    "query",
+    "cli",
+    "data",
+    "filter",
+    "search",
+    "command-line",
+    "data-query",
+    "data-filtering",
+    "distance",
+    "matching",
+    "cli-tool",
+    "typescript",
+    "node"
+  ],
+  "author": "Pablo Andura, SilverDevs",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^22.9.1",
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "cli-table3": "^0.6.5",
+    "commander": "^12.1.0",
+    "inquirer": "^12.1.0"
+  }
+}
