@@ -6,6 +6,6 @@ export type Property = {
     bathrooms: number;
     location: [number, number];
     description: string;
-    ammenities: Record<string, boolean>; // e.g., { yard: false, garage: true }
+    ammenities: Record<string, boolean>;
   };
   
