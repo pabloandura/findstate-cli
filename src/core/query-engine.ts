@@ -1,5 +1,5 @@
-import { Property } from "../types/Property";
-import { calculateDistance } from "./distance-utils";
+import { Property } from "../types/Property.ts";
+import { calculateDistance } from "./distance-utils.ts";
 
 /**
  * Represents a query used to filter properties.

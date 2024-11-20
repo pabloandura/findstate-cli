@@ -6,12 +6,14 @@
   "bin": {
     "findstate-cli": "./dist/cli/index.js"
   },
+  "type": "module",
   "scripts": {
     "start": "node dist/cli/index.js",
-    "build": "tsc",
     "dev": "nodemon src/cli/index.ts",
-  "test": "mocha -r ts-node/register tests/**/*.test.ts"
-
+    "build": "tsc",
+    "test": "node --no-warnings --loader ts-node/esm ./node_modules/.bin/mocha src/tests/**/*.test.ts",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
   },
   "keywords": [
     "query",
@@ -34,7 +36,10 @@
     "@types/chai": "^5.0.1",
     "@types/mocha": "^10.0.9",
     "@types/node": "^22.9.1",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
     "chai": "^5.1.2",
+    "eslint": "^9.15.0",
     "mocha": "^10.8.2",
     "nodemon": "^3.1.7",
     "ts-mocha": "^10.0.0",
