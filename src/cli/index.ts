@@ -15,7 +15,7 @@ program
 program
   .command("query")
   .description("Run a query using filters")
-  .option("-q, --queries <queries...>", "Query filters in the format field:operation:value")
+  .option("-q, --queries <queries...>", "Query filters in the format field:operation:value", [])
   .option("-s, --source <source>", "Data source (mock or real)", "mock")
   .option("-o, --output <output>", "Output format (table or json)", "table")
   .action(({ queries, source, output }) => queryCommand(queries, source, output));
