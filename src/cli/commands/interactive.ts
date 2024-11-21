@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { queryCommand } from "./query.ts";
+import { queryCommand } from "./query";
 
 export async function interactiveMode(source: string = "mock", output: string = "table"): Promise<void> {
   const queries: string[] = [];

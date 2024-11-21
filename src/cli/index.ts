@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { Command } from "commander";
-import { queryCommand } from "./commands/query.ts";
-import { interactiveMode } from "./commands/interactive.ts";
-import { helpCommand } from "./commands/help.ts";
-import { exportCommand } from "./commands/export.ts";
+import { queryCommand } from "./commands/query";
+import { interactiveMode } from "./commands/interactive";
+import { helpCommand } from "./commands/help";
+import { exportCommand } from "./commands/export";
 
 const program = new Command();
 

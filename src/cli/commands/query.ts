@@ -1,7 +1,7 @@
-import { loadData } from "../../core/data-loader.ts";
-import { formatAsJSON, formatAsTable } from "../../core/formatter.ts";
-import { queryData } from "../../core/query-engine.ts";
-import { validateQuery } from "../../core/validators.ts";
+import { loadData } from "../../core/data-loader";
+import { formatAsJSON, formatAsTable } from "../../core/formatter";
+import { queryData } from "../../core/query-engine";
+import { validateQuery } from "../../core/validators";
 
 export function queryCommand(queries: string[], source: string = "mock", output: string = "table"): void {
     const data = loadData(source);

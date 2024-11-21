@@ -1,4 +1,4 @@
-# searchstate-cli
+# findstate-cli
 
 A lightweight, extensible command-line tool for querying and filtering data with support for advanced operations like equality, range comparisons, inclusion, pattern matching, and geospatial distance calculations. Perfect for datasets with complex querying needs. Includes interactive mode, customizable logic, and formatted outputs (table or JSON). Ideal for developers and data analysts.
 
@@ -19,7 +19,7 @@ A lightweight, extensible command-line tool for querying and filtering data with
 Install globally with npm:
 
 ```bash
-npm install -g searchstate-cli
+npm install -g findstate-cli
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ npm install -g searchstate-cli
 Run the following to filter data using queries:
 
 ```bash
-searchstate-cli query -q field:operation:value
+findstate-cli query -q field:operation:value
 ```
 
 **Example:**
@@ -37,7 +37,7 @@ searchstate-cli query -q field:operation:value
 Find data where the price is greater than 300000:
 
 ```bash
-searchstate-cli query -q price:greaterThan:300000
+findstate-cli query -q price:greaterThan:300000
 ```
 
 ### Interactive Mode
@@ -45,7 +45,7 @@ searchstate-cli query -q price:greaterThan:300000
 Start the CLI in interactive mode:
 
 ```bash
-searchstate-cli interactive
+findstate-cli interactive
 ```
 
 **Example Output:**
@@ -62,7 +62,7 @@ searchstate-cli interactive
 Combine multiple queries by chaining them with `-q`:
 
 ```bash
-searchstate-cli query -q price:greaterThan:200000 -q description:match:garage
+findstate-cli query -q price:greaterThan:200000 -q description:match:garage
 ```
 
 ### Geospatial Filtering
@@ -70,7 +70,7 @@ searchstate-cli query -q price:greaterThan:200000 -q description:match:garage
 Filter data by distance from a specific location:
 
 ```bash
-searchstate-cli query -q location:distance:40.7128,-74.0060
+findstate-cli query -q location:distance:40.7128,-74.0060
 ```
 
 ### Exporting Results
@@ -78,7 +78,7 @@ searchstate-cli query -q location:distance:40.7128,-74.0060
 Export results to a file:
 
 ```bash
-searchstate-cli query -q price:greaterThan:200000 --export results.json
+findstate-cli query -q price:greaterThan:200000 --export results.json
 ```
 
 ## Development
@@ -88,8 +88,8 @@ searchstate-cli query -q price:greaterThan:200000 --export results.json
 Clone the repository:
 
 ```bash
-git clone https://github.com/pabloandura/searchstate-cli.git
-cd searchstate-cli
+git clone https://github.com/pabloandura/findstate-cli.git
+cd findstate-cli
 ```
 
 Install dependencies:

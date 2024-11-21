@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { formatAsTable, formatAsJSON } from "../../core/formatter.ts";
-import { Property } from "../../types/Property.ts";
+import { formatAsTable, formatAsJSON } from "../../core/formatter";
+import { Property } from "../../types/Property";
 
 describe("CORE | formatter", () => {
   const mockProperties: Property[] = [

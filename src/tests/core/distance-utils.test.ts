@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { degreesToRadians, calculateDistance } from "../../core/distance-utils.ts";
+import { degreesToRadians, calculateDistance } from "../../core/distance-utils";
 
 describe("CORE | distance-utils", () => {
   describe("degreesToRadians", () => {

@@ -1,6 +1,6 @@
 import fs from "fs";
-import { queryData } from "../../core/query-engine.ts";
-import { loadData } from "../../core/data-loader.ts";
+import { queryData } from "../../core/query-engine";
+import { loadData } from "../../core/data-loader";
 
 export function exportCommand(
   queries: string[],
