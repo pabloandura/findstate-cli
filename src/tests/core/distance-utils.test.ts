@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { degreesToRadians, calculateDistance } from "../../core/distance-utils.ts";
 
-describe("distance-utils", () => {
+describe("CORE | distance-utils", () => {
   describe("degreesToRadians", () => {
     it("should convert 0 degrees to 0 radians", () => {
       const radians = degreesToRadians(0);

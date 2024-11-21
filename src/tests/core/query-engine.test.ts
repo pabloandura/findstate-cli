@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { queryData } from "../../core/query-engine.ts";
 import { Property } from "../../types/Property.ts";
 
-describe("queryData", () => {
+describe("CORE | query-engine", () => {
   const mockProperties: Property[] = [
     { squareFootage: 1200, lighting: "high", price: 400000, rooms: 2, bathrooms: 1, location: [40.7128, -74.0060], description: "Compact apartment", ammenities: { pool: true } },
     { squareFootage: 1500, lighting: "medium", price: 500000, rooms: 3, bathrooms: 2, location: [34.0522, -118.2437], description: "Spacious condo", ammenities: { pool: false } },

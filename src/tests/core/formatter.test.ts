@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { formatAsTable, formatAsJSON } from "../../core/formatter.ts";
 import { Property } from "../../types/Property.ts";
 
-describe("formatter", () => {
+describe("CORE | formatter", () => {
   const mockProperties: Property[] = [
     {
       squareFootage: 1200,
