@@ -17,12 +17,37 @@ A lightweight, extensible command-line tool for querying and filtering data with
 
 ---
 
-## Installation
+## Development
 
-Install globally with npm:
+### Setting Up Locally
+
+Clone the repository:
 
 ```
-npm install -g findstate-cli
+git clone https://github.com/pabloandura/findstate-cli.git
+cd findstate-cli
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+### Building the Project
+
+Build the TypeScript code to JavaScript:
+
+```
+npm run build
+```
+
+### Running Tests
+
+Run the unit tests:
+
+```
+npm test
 ```
 
 ---
@@ -129,53 +154,3 @@ findstate-cli query -q description:fuzzy:garage
 
 This query will return all properties with descriptions approximately matching the word `garage`.
 
----
-
-## Development
-
-### Setting Up Locally
-
-Clone the repository:
-
-```
-git clone https://github.com/pabloandura/findstate-cli.git
-cd findstate-cli
-```
-
-Install dependencies:
-
-```
-npm install
-```
-
-Run in development mode:
-
-```
-npm run dev
-```
-
-### Building the Project
-
-Build the TypeScript code to JavaScript:
-
-```
-npm run build
-```
-
-### Running Tests
-
-Run the unit tests:
-
-```
-npm run test
-```
-
----
-
-## Help
-
-For detailed usage instructions, run:
-
-```
-findstate-cli help
-```

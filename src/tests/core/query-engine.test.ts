@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { queryData } from "../../core/query-engine";
-import { Property } from "../../types/Property";
+import { queryData } from "../../core/query-engine.ts";
+import { Property } from "../../types/Property.ts";
 
 describe("CORE | query-engine", () => {
   const mockProperties: Property[] = [
@@ -158,8 +158,6 @@ describe("CORE | Fuzzy matching", () => {
       { field: "description", operation: "fuzzy", value: "garage" },
     ];
     const results = queryData(properties, queries);
-  
-    console.log(results);
   
    
     expect(results).to.have.lengthOf(7);

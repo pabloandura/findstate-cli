@@ -6,12 +6,12 @@
   "bin": {
     "findstate-cli": "./dist/cli/index.js"
   },
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "start": "node dist/cli/index.js",
     "dev": "nodemon src/cli/index.ts",
     "build": "tsc",
-    "test": "node --no-warnings --loader ts-node/esm ./node_modules/.bin/mocha src/tests/**/*.test.ts",
+    "test": "node --loader ts-node/esm node_modules/mocha/bin/mocha src/tests/**/*.test.ts",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
   },

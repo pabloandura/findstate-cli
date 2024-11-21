@@ -1,5 +1,5 @@
-import { mockData } from "../data/mock-data";
-import { Property } from "../types/Property";
+import { mockData } from "../data/mock-data.ts";
+import { Property } from "../types/Property.ts";
 
 /**
  * Loads mock property data or throws an error for unsupported sources.

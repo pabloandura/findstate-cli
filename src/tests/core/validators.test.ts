@@ -5,7 +5,7 @@ import {
   validateOperation,
   validateValue,
   validateQuery,
-} from "../../core/validators";
+} from "../../core/validators.ts";
 
 describe("CORE | validators", () => {
   describe("validateQueryFormat", () => {
