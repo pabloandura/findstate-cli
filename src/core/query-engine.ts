@@ -1,5 +1,5 @@
 import { Property } from "../types/Property.ts";
-import { calculateDistance } from "./distance-utils.ts";
+import { calculateDistance, levenshteinDistance } from "./distance-utils.ts";
 
 /**
  * Represents a query used to filter properties.
@@ -22,6 +22,7 @@ export type DataQuery = {
  * - `lessThan`: Checks if the field is less than the value (numeric fields only).
  * - `greaterThan`: Checks if the field is greater than the value (numeric fields only).
  * - `match`: Checks if the field includes a substring (string fields only).
+ * - `fuzzy`: Checks if the field is approximately similar to the value (string fields only).
  * - `distance`: Checks if a location field is within a certain radius of a target location.
  * - `include`: Checks if a field includes a specific boolean property (e.g., an amenity like `yard` or `garage`).
  * 
@@ -30,21 +31,6 @@ export type DataQuery = {
  * @returns {Property[]} - A filtered list of properties that match all queries.
  * 
  * @throws {Error} If an unsupported operation is encountered.
- * 
- * @example
- * // Example usage:
- * const properties = [
- *   { price: 300000, rooms: 4, location: [40.7128, -74.0060], ammenities: { pool: true } },
- *   { price: 200000, rooms: 3, location: [34.0522, -118.2437], ammenities: { pool: false } }
- * ];
- * 
- * const queries = [
- *   { field: "price", operation: "greaterThan", value: 250000 },
- *   { field: "ammenities", operation: "include", value: "pool" }
- * ];
- * 
- * const results = queryData(properties, queries);
- * console.log(results);
  */
 export function queryData(properties: Property[], queries: DataQuery[]): Property[] {
   return properties.filter((property) => {
@@ -59,6 +45,19 @@ export function queryData(properties: Property[], queries: DataQuery[]): Propert
           return typeof fieldValue === "number" && fieldValue > query.value;
         case "match":
           return typeof fieldValue === "string" && fieldValue.includes(query.value);
+        case "fuzzy":
+          if (typeof fieldValue === "string" && typeof query.value === "string") {
+            const words = fieldValue.toLowerCase().split(/\s+/);
+            const queryValue = query.value.toLowerCase();
+        
+            return words.some((word) => {
+              const distance = levenshteinDistance(word, queryValue);
+              console.log(`Word: ${word}, Distance: ${distance}, Query: ${queryValue}`);
+              return distance <= 3;
+            });
+          }
+          return false;
+          
         case "distance":
           if (Array.isArray(query.value) && query.value.length === 3) {
             const [targetLat, targetLon, radius] = query.value;

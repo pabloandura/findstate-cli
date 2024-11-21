@@ -32,27 +32,27 @@ describe("CORE | distance-utils", () => {
 
     it("should calculate the distance between New York and Los Angeles", () => {
       const distance = calculateDistance([40.7128, -74.0060], [34.0522, -118.2437]);
-      expect(distance).to.be.closeTo(3935.737, 0.1); // Approximate real-world value
+      expect(distance).to.be.closeTo(3935.737, 0.1);
     });
 
     it("should calculate the distance between the North Pole and the Equator", () => {
       const distance = calculateDistance([90, 0], [0, 0]);
-      expect(distance).to.be.closeTo(10007.543, 0.1); // Earth's quarter circumference
+      expect(distance).to.be.closeTo(10007.543, 0.1);
     });
 
     it("should calculate the distance for points on the same latitude", () => {
       const distance = calculateDistance([0, 0], [0, 90]);
-      expect(distance).to.be.closeTo(10007.54, 0.1); // One-fourth of Earth's circumference
+      expect(distance).to.be.closeTo(10007.54, 0.1);
     });
 
     it("should calculate the distance for points on the same longitude", () => {
       const distance = calculateDistance([0, 0], [45, 0]);
-      expect(distance).to.be.closeTo(5003.771, 0.1); // Approximate value
+      expect(distance).to.be.closeTo(5003.771, 0.1);
     });
 
     it("should handle negative coordinates (e.g., southern and western hemispheres)", () => {
-      const distance = calculateDistance([-34.6037, -58.3816], [-33.8688, 151.2093]); // Buenos Aires to Sydney
-      expect(distance).to.be.closeTo(11801, 1); // Approximate real-world value
+      const distance = calculateDistance([-34.6037, -58.3816], [-33.8688, 151.2093]);
+      expect(distance).to.be.closeTo(11801, 1);
     });
   });
 });

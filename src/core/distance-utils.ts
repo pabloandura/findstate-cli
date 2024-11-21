@@ -4,9 +4,6 @@
  * @param {number} degrees - The angle in degrees to convert.
  * @returns {number} - The angle in radians.
  *
- * @example
- * const radians = degreesToRadians(180);
- * console.log(radians); // Outputs: 3.141592653589793
  */
 export const degreesToRadians = (degrees: number): number => (degrees * Math.PI) / 180;
 
@@ -17,9 +14,6 @@ export const degreesToRadians = (degrees: number): number => (degrees * Math.PI)
  * @param {[number, number]} [latitude2, longitude2] - The coordinates of the second location.
  * @returns {number} - The distance between the two locations in kilometers.
  *
- * @example
- * const distance = calculateDistance([40.7128, -74.0060], [34.0522, -118.2437]);
- * console.log(distance); // Outputs: 3940.737 km
  */
 export function calculateDistance(
   [latitude1, longitude1]: [number, number],
@@ -42,4 +36,38 @@ export function calculateDistance(
   const centralAngle = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
   return earthRadiusKm * centralAngle;
+}
+
+/**
+ * Calculates the Levenshtein distance between two strings.
+ * Used for fuzzy matching.
+ * 
+ * @param {string} a - The first string.
+ * @param {string} b - The second string.
+ * @returns {number} - The Levenshtein distance.
+ */
+export function levenshteinDistance(a: string, b: string): number {
+  const matrix = Array.from({ length: a.length + 1 }, () =>
+    Array(b.length + 1).fill(0)
+  );
+
+  for (let i = 0; i <= a.length; i++) {
+    for (let j = 0; j <= b.length; j++) {
+      if (i === 0) {
+        matrix[i][j] = j;
+      } else if (j === 0) {
+        matrix[i][j] = i;
+      } else if (a[i - 1] === b[j - 1]) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] =
+          Math.min(
+            matrix[i - 1][j],
+            matrix[i][j - 1],
+            matrix[i - 1][j - 1]
+          ) + 1;
+      }
+    }
+  }
+  return matrix[a.length][b.length];
 }
