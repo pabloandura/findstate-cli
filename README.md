@@ -55,6 +55,14 @@ At the end remember to:
 npm unlink -g
 ```
 
+OR
+
+You can install it globally with:
+```
+npm install -g findstate-cli
+```
+
+
 ### Running Tests
 
 Run the unit tests:
