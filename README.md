@@ -1,6 +1,6 @@
 # findstate-cli
 
-A lightweight, extensible command-line tool for querying and filtering data with support for operations like equality, range comparisons, inclusion, pattern matching, and more complex geospatial distance calculations, and fuzzy search. 
+A lightweight, extensible command-line tool for querying and filtering data with support for operations like equality, range comparisons, inclusion, pattern matching, and more complex distance calculations, and fuzzy search. 
 
 Includes interactive mode, customizable logic, and formatted outputs (table or JSON).
 
