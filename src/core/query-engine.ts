@@ -52,7 +52,6 @@ export function queryData(properties: Property[], queries: DataQuery[]): Propert
         
             return words.some((word) => {
               const distance = levenshteinDistance(word, queryValue);
-              console.log(`Word: ${word}, Distance: ${distance}, Query: ${queryValue}`);
               return distance <= 3;
             });
           }

@@ -18,5 +18,5 @@ export function exportCommand(
   const results = queryData(data, parsedQueries);
 
   fs.writeFileSync(fileName, JSON.stringify(results, null, 2));
-  console.log(`Results exported to ${fileName}`);
+  console.info(`Results exported to ${fileName}`);
 }

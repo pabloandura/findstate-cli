@@ -8,7 +8,7 @@ export function queryCommand(queries: string[], source: string = "mock", output:
   
     if (!queries || queries.length === 0) {
       console.error("Error: No queries provided. Use the format field:operation:value.");
-      console.log("Example: price:greaterThan:300000 or rooms:lessThan:5");
+      console.info("Example: price:greaterThan:300000 or rooms:lessThan:5");
       process.exit(1);
     }
   
@@ -16,7 +16,7 @@ export function queryCommand(queries: string[], source: string = "mock", output:
       const parts = query.split(":");
       if (parts.length !== 3) {
         console.error(`Error: Invalid query format '${query}'. Expected format is field:operation:value.`);
-        console.log("Example: price:greaterThan:300000 or rooms:lessThan:5");
+        console.info("Example: price:greaterThan:300000 or rooms:lessThan:5");
         process.exit(1);
       }
   
@@ -31,9 +31,9 @@ export function queryCommand(queries: string[], source: string = "mock", output:
     const results = queryData(data, parsedQueries);
   
     if (output === "json") {
-      console.log(formatAsJSON(results));
+      console.info(formatAsJSON(results));
     } else {
-      console.log(formatAsTable(results));
+      console.info(formatAsTable(results));
     }
   }
   

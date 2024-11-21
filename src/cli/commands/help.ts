@@ -1,5 +1,5 @@
 export function helpCommand(): void {
-    console.log(`
+    console.info(`
   Usage: findstate-cli [command] [options]
   
   Commands:
