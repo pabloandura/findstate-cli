@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { queryData } from "../../core/query-engine.ts";
-import { Property } from "../../types/Property.ts";
+import { queryData } from "../../core/query-engine.js";
+import { Property } from "../../types/Property.js";
 
 describe("CORE | query-engine", () => {
   const mockProperties: Property[] = [

@@ -1,7 +1,7 @@
 import fs from "fs";
-import { queryData } from "../../core/query-engine.ts";
-import { loadData } from "../../core/data-loader.ts";
-import { validateFileName } from "../../utils/validation-helpers.ts";
+import { queryData } from "../../core/query-engine.js";
+import { loadData } from "../../core/data-loader.js";
+import { validateFileName } from "../../utils/validation-helpers.js";
 
 export function exportCommand(
   queries: string[],

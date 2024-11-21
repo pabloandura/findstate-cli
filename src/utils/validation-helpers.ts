@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import { getClosestMatch } from "./distance-helpers.js";
 
 export function validateRequiredArray(array: unknown, errorMessage: string): void {
   if (!Array.isArray(array) || array.length === 0) {
@@ -7,11 +8,19 @@ export function validateRequiredArray(array: unknown, errorMessage: string): voi
   }
 }
 
-export function validateOptionValues(option: string, validValues: string[], errorMessage: string): void {
+export function validateOptionValues(
+  option: string,
+  validValues: string[],
+  errorMessage: string
+): void {
   if (!validValues.includes(option)) {
-    throw new Error(`${errorMessage} Allowed values: ${validValues.join(", ")}.`);
+    const closestMatch = getClosestMatch(option, validValues);
+    throw new Error(
+      `${errorMessage} Did you mean '${closestMatch}'? Allowed values: ${validValues.join(", ")}.`
+    );
   }
 }
+
 
 export function validateFileName(fileName: string): void {
   if (!fileName.endsWith(".json")) {

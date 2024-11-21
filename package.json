@@ -8,12 +8,13 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node dist/cli/index.js",
-    "dev": "nodemon src/cli/index.ts",
-    "build": "tsc",
-    "test": "node --loader ts-node/esm node_modules/mocha/bin/mocha src/tests/**/*.test.ts",
+    "start": "node --loader ts-node/esm src/cli/index.ts",
+    "dev": "nodemon --watch src --exec node --loader ts-node/esm src/cli/index.ts",
+    "build": "tsc --project tsconfig.build.json",
+    "test": "NODE_OPTIONS='--loader ts-node/esm' mocha src/tests/**/*.test.ts",
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix"
+    "lint:fix": "eslint ./src --fix",
+    "prepare": "npm run build"
   },
   "keywords": [
     "query",

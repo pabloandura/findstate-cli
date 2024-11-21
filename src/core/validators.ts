@@ -61,8 +61,13 @@ export function validateOperation(operation: string): void {
  * Validates the query value based on the field.
  * @param field - The field the value belongs to.
  * @param value - The value to validate.
+ * @param operation - The operation to consider for validation.
  */
-export function validateValue(field: string, value: any): void {
+export function validateValue(
+  field: string,
+  value: any,
+  operation: string = "equal"
+): void {
   switch (field) {
     case "squareFootage":
     case "price":
@@ -100,23 +105,26 @@ export function validateValue(field: string, value: any): void {
       break;
 
     case "description":
-      if (typeof value !== "string") {
-        throw new Error(
-          `Invalid value '${value}' for field '${field}'. Expected a string.`
-        );
-      }
-      if (value.length < 10 || value.length > 500) {
-        throw new Error(
-          `Invalid description length for field '${field}'. Must be between 10 and 500 characters.`
-        );
-      }
-      const prohibitedWords = ["Lorem ipsum", "placeholder", "test"];
-      if (prohibitedWords.some((word) => value.includes(word))) {
-        throw new Error(
-          `Invalid value for field '${field}'. Contains prohibited words: ${prohibitedWords.join(
-            ", "
-          )}.`
-        );
+      if (operation === "match") {
+        if (typeof value !== "string" || value.length === 0) {
+          throw new Error(
+            `Invalid value for field '${field}'. Must be a non-empty string for match.`
+          );
+        }
+      } else {
+        if (typeof value !== "string" || value.length < 10 || value.length > 500) {
+          throw new Error(
+            `Invalid description length for field '${field}'. Must be between 10 and 500 characters.`
+          );
+        }
+        const prohibitedWords = ["Lorem ipsum", "placeholder", "test"];
+        if (prohibitedWords.some((word) => value.includes(word))) {
+          throw new Error(
+            `Invalid value for field '${field}'. Contains prohibited words: ${prohibitedWords.join(
+              ", "
+            )}.`
+          );
+        }
       }
       break;
 
@@ -136,5 +144,5 @@ export function validateQuery(query: {
 }): void {
   validateField(query.field);
   validateOperation(query.operation);
-  validateValue(query.field, query.value);
+  validateValue(query.field, query.value, query.operation);
 }

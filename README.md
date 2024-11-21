@@ -44,6 +44,17 @@ Build the TypeScript code to JavaScript:
 npm run build
 ```
 
+If it is the first time you run the application you should `link`:
+
+```
+npm link
+```
+
+At the end remember to:
+```
+npm unlink -g
+```
+
 ### Running Tests
 
 Run the unit tests:

@@ -71,3 +71,29 @@ export function levenshteinDistance(a: string, b: string): number {
   }
   return matrix[a.length][b.length];
 }
+
+/**
+ * Finds the closest match from a list of valid options using the Levenshtein distance.
+ *
+ * @param {string} input - The input string to match.
+ * @param {string[]} validOptions - The list of valid options to compare against.
+ * @returns {string} - The closest matching string from the valid options.
+ *
+ * @example
+ * const closest = getClosestMatch("lighitng", ["lighting", "price", "rooms"]);
+ * console.log(closest);
+ */
+export function getClosestMatch(input: string, validOptions: string[]): string {
+  let closestMatch = "";
+  let minDistance = Infinity;
+
+  for (const option of validOptions) {
+    const distance = levenshteinDistance(input, option);
+    if (distance < minDistance) {
+      minDistance = distance;
+      closestMatch = option;
+    }
+  }
+
+  return closestMatch;
+}

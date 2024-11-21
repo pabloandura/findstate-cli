@@ -1,7 +1,7 @@
 import { expect } from "chai";
-import { degreesToRadians, calculateDistance } from "../../core/distance-utils.ts";
+import { degreesToRadians, calculateDistance, levenshteinDistance } from "../../utils/distance-helpers.js";
 
-describe("CORE | distance-utils", () => {
+describe("UTILS | distance-helpers", () => {
   describe("degreesToRadians", () => {
     it("should convert 0 degrees to 0 radians", () => {
       const radians = degreesToRadians(0);
@@ -53,6 +53,38 @@ describe("CORE | distance-utils", () => {
     it("should handle negative coordinates (e.g., southern and western hemispheres)", () => {
       const distance = calculateDistance([-34.6037, -58.3816], [-33.8688, 151.2093]);
       expect(distance).to.be.closeTo(11801, 1);
+    });
+  });
+
+  describe("levenshteinDistance", () => {
+    it("should return 0 for identical strings", () => {
+      const distance = levenshteinDistance("test", "test");
+      expect(distance).to.equal(0);
+    });
+
+    it("should return the length of the string when compared to an empty string", () => {
+      const distance = levenshteinDistance("hello", "");
+      expect(distance).to.equal(5);
+    });
+
+    it("should calculate the distance for strings with substitutions", () => {
+      const distance = levenshteinDistance("kitten", "sitting");
+      expect(distance).to.equal(3);
+    });
+
+    it("should calculate the distance for strings with additions", () => {
+      const distance = levenshteinDistance("book", "books");
+      expect(distance).to.equal(1);
+    });
+
+    it("should calculate the distance for strings with deletions", () => {
+      const distance = levenshteinDistance("apple", "aple");
+      expect(distance).to.equal(1);
+    });
+
+    it("should calculate the distance for completely different strings", () => {
+      const distance = levenshteinDistance("abc", "xyz");
+      expect(distance).to.equal(3);
     });
   });
 });

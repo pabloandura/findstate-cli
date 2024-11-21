@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { queryCommand } from "./commands/query.ts";
-import { interactiveMode } from "./commands/interactive.ts";
-import { helpCommand } from "./commands/help.ts";
-import { exportCommand } from "./commands/export.ts";
-import { validateRequiredArray, validateOptionValues, validateFileName } from "../utils/validation-helpers.ts";
-import { handleError } from "../utils/handleError.ts";
+import { queryCommand } from "./commands/query.js";
+import { interactiveMode } from "./commands/interactive.js";
+import { helpCommand } from "./commands/help.js";
+import { exportCommand } from "./commands/export.js";
+import { validateRequiredArray, validateOptionValues, validateFileName } from "../utils/validation-helpers.js";
+import { handleError } from "../utils/handleError.js";
 
 const program = new Command();
 

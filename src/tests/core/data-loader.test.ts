@@ -1,7 +1,7 @@
 import { expect } from "chai";
-import { loadData } from "../../core/data-loader.ts";
+import { loadData } from "../../core/data-loader.js";
 
-import { mockData } from "../../data/mock-data.ts";
+import { mockData } from "../../data/mock-data.js";
 
 describe("CORE | data-loader", () => {
   it("should return mock data when source is 'mock'", () => {

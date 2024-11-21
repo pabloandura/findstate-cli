@@ -1,5 +1,5 @@
-import { Property } from "../types/Property.ts";
-import { calculateDistance, levenshteinDistance } from "./distance-utils.ts";
+import { Property } from "../types/Property.js";
+import { calculateDistance, levenshteinDistance } from "../utils/distance-helpers.js";
 
 /**
  * Represents a query used to filter properties.

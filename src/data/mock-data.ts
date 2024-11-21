@@ -1,4 +1,4 @@
-import { Property } from "../types/Property.ts";
+import { Property } from "../types/Property.js";
 
 export const mockData: Property[] = [
   {

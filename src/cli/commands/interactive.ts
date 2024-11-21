@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { queryCommand } from "./query.ts";
+import { queryCommand } from "./query.js";
 
 const validFields = [
   "squareFootage",

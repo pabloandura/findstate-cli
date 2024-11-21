@@ -1,5 +1,5 @@
 import Table from "cli-table3"; 
-import { Property } from "../types/Property.ts";
+import { Property } from "../types/Property.js";
 
 /**
  * Formats a list of properties into a table for CLI display.
